@@ -4,20 +4,19 @@ import { formatCurrency } from "./utils/money.js";
 let cartSummaryHtml = '';
 
 cart.forEach((CartItem) => {
-    const ProductId = CartItem.ProductId;
+    const productId = CartItem.productId;
 
     let matchingProduct;
 
     products.forEach((products) => {
-        if(products.id === ProductId){
+        if(products.id === productId){
             matchingProduct = products;
         }
     });
     
 
     cartSummaryHtml+=`
-    <div class="cart-item-container 
-        js-cart-item-container-${matchingProduct.id}">
+    <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
         <div class="delivery-date">
             Delivery date: Tuesday, June 21
         </div>

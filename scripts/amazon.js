@@ -78,9 +78,9 @@ document.querySelectorAll('.js-add-to-cart-btn')
     .forEach((button) => {
         button.addEventListener('click' , () => {
 
-            const ProductId = button.dataset.productId;  //kebab to camelCase 
+            const productId = button.dataset.productId;  //kebab to camelCase 
 
-          addToCart(ProductId);
+          addToCart(productId);
           updateCartQuantity();
         }) 
     });
