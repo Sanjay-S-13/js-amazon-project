@@ -1,4 +1,4 @@
-import {cart} from '../data/cart.js';
+import {cart, addToCart } from '../data/cart.js';
 import { products } from '../data/products.js';
 
 let productsHtml = '';
@@ -57,6 +57,18 @@ products.forEach((product) => {
 `;
 });
 
+//just updates the header section's addtocart logo's number
+function updateCartQuantity(){
+  let quantityOfCart = 0;
+          cart.forEach((CartItem) => {
+            quantityOfCart += CartItem.quantity;
+          });
+
+          document.querySelector('.js-cart-quantity')
+            .innerHTML = quantityOfCart;
+        };
+
+
 
 document.querySelector('.js-product-grid')
     .innerHTML = productsHtml;
@@ -67,34 +79,7 @@ document.querySelectorAll('.js-add-to-cart-btn')
 
             const ProductId = button.dataset.productId;  //kebab to camelCase 
 
-          //checking whether cart is already contains a product 
-          //if yes then sum 1 to the quantity 
-          //otherwise add it to the cart 
-
-          let matchingItem;
-          cart.forEach((item) => {
-            if(ProductId === item.dataProdId){
-              matchingItem = item;
-            }
-          });
-
-          if(matchingItem){
-            matchingItem.quantity += 1;
-          }
-          else{
-            cart.push({
-              dataProdId : ProductId,
-              quantity : 1
-            });
-          }    
-          let quantityOfCart = 0;
-          cart.forEach((item) => {
-            quantityOfCart += item.quantity;
-          });
-
-          document.querySelector('.js-cart-quantity')
-            .innerHTML = quantityOfCart;
-
-          console.log(cart);
-        });
+          addToCart(ProductId);
+          updateCartQuantity();
+        }) 
     });
