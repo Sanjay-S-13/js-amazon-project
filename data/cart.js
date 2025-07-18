@@ -1,0 +1,1 @@
+export const cart = [];//modules works only on live server
