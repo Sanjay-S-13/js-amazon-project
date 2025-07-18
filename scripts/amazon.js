@@ -61,8 +61,8 @@ products.forEach((product) => {
 //just updates the header section's addtocart logo's number
 function updateCartQuantity(){
   let quantityOfCart = 0;
-          cart.forEach((CartItem) => {
-            quantityOfCart += CartItem.quantity;
+          cart.forEach((cartItem) => {
+            quantityOfCart += cartItem.quantity;
           });
 
           document.querySelector('.js-cart-quantity')

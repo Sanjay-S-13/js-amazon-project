@@ -3,6 +3,7 @@ import { products } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
 let cartSummaryHtml = '';
 
+hello();
 cart.forEach((CartItem) => {
     const productId = CartItem.productId;
 
