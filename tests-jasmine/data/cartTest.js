@@ -6,6 +6,11 @@ describe('Test suite : addToCart', () => {
 
     it('adds an existing product to the cart', () => {
 
+        //What does it mean to “spy” on setItem?
+        //You’re intercepting the function so that Jasmine can:
+	        //•	See how many times it was called
+	        //• See what arguments it was called with
+        //To verify that some function (like addToCart) correctly saves data to local storage
         spyOn(localStorage , 'setItem');
 
         spyOn(localStorage , 'getItem').and.callFake(() => {
@@ -16,7 +21,7 @@ describe('Test suite : addToCart', () => {
             }]);
         });
 
-        loadFromStorage();
+        loadFromStorage();//to use the real localStorage
 
         addToCart('e43638ce-6aa0-4b85-b27f-e1d07eb678c6');
         //testcases
